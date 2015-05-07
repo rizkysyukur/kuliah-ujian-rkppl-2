@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:b="http://bootsfaces.net/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>PrimeFaces</title>
+            </f:facet>
+            <link href="../CSS/home.css" rel="stylesheet" type="text/css" />
+        </h:head>
+
+        <h:body>
+            <b:navBar brand="SUREMA" inverse="true" fixed="top">
+                <b:navbarLinks>
+                    <b:navLink value="Home" href="supplier.xhtml"></b:navLink>
+                    <b:navLink value="Katalog" href="#"></b:navLink>
+                    <b:navLink value="Invoice" href="#"></b:navLink>
+                    <b:navLink value="Kontrak" href="#"></b:navLink>
+                </b:navbarLinks>
+                <h:form styleClass="navbar-form navbar-right">
+                    <b:commandButton action="index.xhtml" value="Logout" look="success" icon="log-out" iconAlign="right"/>
+                </h:form>
+            </b:navBar>
+            <br/><br/><br/><br/>
+            <b:container>
+                <b:jumbotron>
+                    <h2 style="margin-top: 0;">Katalog Produk</h2>
+                    <b:row>
+                        <b:column span="1">
+                            <a id="atrigger" class="btn btn-primary" href="#tambahModal" data-toggle="modal" style="color: white">Tambah</a>
+                        </b:column>
+                    </b:row>
+                    <p:dataTable var="car" value="Katalog Produk" style="margin-top: 5px">
+                        <p:column headerText="No">
+                            <h:outputText value="1" />
+                        </p:column>
+
+                        <p:column headerText="Id">
+                            <h:outputText value="M001" />
+                        </p:column>
+                        
+                        <p:column headerText="Gambar">
+                            <p:graphicImage value="../resources/images/camaro.jpg" width="100" height="75"/> 
+                        </p:column>
+
+                        <p:column headerText="Nama">
+                            <h:outputText value="Chevrolet Camaro" />
+                        </p:column>
+
+                        <p:column headerText="Jenis">
+                            <h:outputText value="Barang" />
+                        </p:column>
+
+                        <p:column headerText="Deskripsi">
+                            <h:outputText value="Chevrolet Camaro merupakan mobil yang ikut berperan dalam film tranformer sebagai perubahan wujud dari Bumble bee" />
+                        </p:column>
+
+                        <p:column headerText="Harga">
+                            <h:outputText value="5000000000" />
+                        </p:column>
+
+                        <p:column headerText="Aksi">
+                            <h:form>
+                                <a id="atrigger" class="btn btn-primary btn-xs" href="#ubahModal" data-toggle="modal" style="color: white">Ubah</a>
+                            </h:form>
+                        </p:column>
+                    </p:dataTable>
+                </b:jumbotron>
+            </b:container>
+
+            <b:modal id="tambahModal" title="Tambah Produk">
+                <b:row>
+                    <b:column span="3"></b:column>
+                    <b:column span="6">
+                        <h:form>
+                            <h:panelGrid columns="1" cellpadding="5">
+                                <b:inputText placeholder="Nama" fieldSize="lg" >
+                                </b:inputText>
+                                <b:selectOneMenu fieldSize="lg">
+                                    <f:selectItem itemLabel="-- Pilih jenis produk --" itemValue="1"/>
+                                    <f:selectItem itemLabel="Barang" itemValue="2"/>
+                                    <f:selectItem itemLabel="Jasa" itemValue="3"/>
+                                </b:selectOneMenu> 
+                                <b:inputText placeholder="Harga" fieldSize="lg">
+                                </b:inputText>
+                                <b:inputText placeholder="Dekripsi" fieldSize="lg">
+                                </b:inputText>
+                                <b:inputText placeholder="Image" fieldSize="lg">
+                                </b:inputText>
+                                <f:facet name="footer">
+                                    <b:button value="Simpan" icon="floppy-disk" iconAlign="right" look="primary" outcome="katalog supplier.xhtml" dismiss="modal" />
+                                </f:facet>
+                            </h:panelGrid>
+                        </h:form>
+                    </b:column>
+                    <b:column span="3"></b:column>
+                </b:row>
+            </b:modal>
+
+            <b:modal id="ubahModal" title="Ubah Data Produk">
+                <b:row>
+                    <b:column span="3"></b:column>
+                    <b:column span="6">
+                        <h:form>
+                            <h:panelGrid columns="1" cellpadding="5">
+                                <b:inputText value="Chevrolet Camaro" fieldSize="lg" label="Nama" >
+                                </b:inputText>
+                                <b:selectOneMenu fieldSize="lg" label="Jenis produk">
+                                    <f:selectItem itemLabel="-- Pilih jenis produk --" itemValue="1"/>
+                                    <f:selectItem itemLabel="Barang" itemValue="2"/>
+                                    <f:selectItem itemLabel="Jasa" itemValue="3"/>
+                                </b:selectOneMenu> 
+                                <b:inputText value="5000000000" fieldSize="lg" label="Harga">
+                                </b:inputText>
+                                <b:inputText label="Deskripsi : " value="Chevrolet Camaro merupakan mobil yang ikut berperan dalam film tranformer sebagai perubahan wujud dari Bumble bee" fieldSize="lg">
+                                </b:inputText>
+                                <b:inputText placeholder="Image" fieldSize="lg" label="Gambar">
+                                </b:inputText>
+                                <f:facet name="footer">
+                                    <b:button value="Simpan" icon="floppy-disk" iconAlign="right" look="primary" outcome="katalog supplier.xhtml" dismiss="modal" />
+                                </f:facet>
+                            </h:panelGrid>
+                        </h:form>
+                    </b:column>
+                    <b:column span="3"></b:column>
+                </b:row>
+            </b:modal>
+
+        </h:body>
+    </f:view>
+
+</html>

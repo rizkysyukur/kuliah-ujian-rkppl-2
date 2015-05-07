@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:b="http://bootsfaces.net/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>PrimeFaces</title>
+            </f:facet>
+            <link href="CSS/home.css" rel="stylesheet" type="text/css" />
+        </h:head>
+
+        <h:body>
+            <b:navBar brand="SUREMA" inverse="true" fixed="top">
+                <b:navbarLinks>
+                    <b:navLink value="Home" href="toko.xhtml"></b:navLink>
+                    <b:dropMenu value="Produk">
+                        <b:navLink value="Katalog" href="katalog toko.xhtml"></b:navLink>
+                        <b:navLink value="Order tracker" href="order tracker.xhtml"></b:navLink>
+                        <b:navLink value="Lelang" href="#"></b:navLink>
+                    </b:dropMenu>
+                    <b:dropMenu value="Supplier">
+                        <b:navLink value="Data supplier" href="data supplier.xhtml"></b:navLink>
+                        <b:navLink value="Kontrak" href="drop supplier.xhtml"></b:navLink>
+                    </b:dropMenu>
+                </b:navbarLinks>
+                <h:form styleClass="navbar-form navbar-right">
+                    <b:commandButton action="index.xhtml" value="Logout" look="success" icon="log-out" iconAlign="right"/>
+                </h:form>
+            </b:navBar>
+            <b:container style="margin-top: 5.5em">
+                <b:jumbotron>
+                    <h2 style="margin-top: 0">Data Supplier</h2>   
+                    <p:dataTable var="car" value="Kantung Belanja" style="margin-top: 2em">
+                        <p:column headerText="No">
+                            <h:outputText value="1" />
+                        </p:column>
+
+                        <p:column headerText="Id Supplier">
+                            <h:outputText value="SP1" />
+                        </p:column>
+
+                        <p:column headerText="Nama Perusahaan">
+                            <h:outputText value="Chevrolet" />
+                        </p:column>
+
+                        <p:column headerText="Email">
+                            <h:outputText value="chevrolet@gmail.com" />
+                        </p:column>
+
+                        <p:column headerText="No Telp">
+                            <h:outputText value="0000-8888-9999" />
+                        </p:column>
+
+                        <p:column headerText="Fax">
+                            <h:outputText value="5555-1111" />
+                        </p:column>
+
+                        <p:column headerText="Jenis Usaha">
+                            <h:outputText value="Produksi kendaraan" />
+                        </p:column>
+
+                        <p:column headerText="Alamat">
+                            <h:outputText value="California" />
+                        </p:column>
+
+
+                        <p:column headerText="Aksi">
+                            <h:form>
+                                <b:commandButton style="font-size: 11px" action="#" value="Drop" size="xs" look="primary" icon="remove" iconAlign="right"/>
+                            </h:form>
+
+                        </p:column>
+                    </p:dataTable>
+
+                </b:jumbotron>
+            </b:container>
+        </h:body>
+    </f:view>
+
+</html>

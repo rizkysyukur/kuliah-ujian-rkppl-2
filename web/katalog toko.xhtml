@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:b="http://bootsfaces.net/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>PrimeFaces</title>
+            </f:facet>
+            <link href="CSS/home.css" rel="stylesheet" type="text/css" />
+        </h:head>
+
+        <h:body>
+            <b:modal id="amodal" title="Chevrolet Camaro">
+                <p:graphicImage value="resources/images/camaro.jpg" width="400" height="250"/>
+                <table style="margin-top: 10px" align="center">
+                    <tr align="left">
+                        <td><b>Nama</b></td>
+                        <td></td>
+                        <td>: Chevrolet Camaro</td>
+                    </tr>
+                    <tr align="left">
+                        <td><b>Jenis produk</b></td>
+                        <td></td>
+                        <td>: Barang</td>
+                    </tr>
+                    <tr align="left">
+                        <td><b>Harga</b></td>
+                        <td></td>
+                        <td>: Rp.5000000000.-</td>
+                    </tr>
+                </table>
+                <p align="justify"><b>Deskripsi</b></p>
+                <p align="justify">Chevrolet Camaro merupakan mobil yang ikut berperan dalam film tranformer sebagai perubahan wujud dari Bumble bee</p>
+                <f:facet name="footer">
+                    <b:button value="Close" dismiss="modal" onclick="return false;"/>
+                    <b:button value="Beli" look="primary" icon="ok" iconAlign="right" dismiss="modal" outcome="kantung belanja.xhtml" />
+                </f:facet>
+            </b:modal>
+            <b:row>
+                <b:column span="3">
+                    <b:panel look="missing" style="background: #222;color: white;margin: 0;">
+                        <f:facet name="heading">KATALOG PRODUK</f:facet>   
+                        <b:listLinks>
+                            <h:form styleClass="navbar-form navbar-right" style="margin-bottom: 10px">
+                                <b:commandButton action="kantung belanja.xhtml" value="0" look="primary" icon="shopping-cart" iconAlign="left"/>
+                            </h:form>
+                            <b:navLink value="HOME" href="toko.xhtml"></b:navLink>
+                            <b:selectOneMenu value="" style="margin-top: 30px" >
+                                <f:selectItem itemLabel="--Pilih Supplier--" itemValue="0"/>
+                                <f:selectItem itemLabel="Fiat" itemValue="1"/>
+                                <f:selectItem itemLabel="Honda" itemValue="2"/>
+                                <f:selectItem itemLabel="Opel" itemValue="3"/>
+                            </b:selectOneMenu>
+                            <b:navLink header="JENIS PRODUK"/>
+                            <b:navLink value="Barang" href="#"></b:navLink>
+                            <b:navLink value="Jasa" href="#"></b:navLink>
+                            <h:form style="margin-top: 20.8em">
+                                <b:commandButton action="index.xhtml" value="Logout" look="success" icon="log-out" iconAlign="right"/>
+                            </h:form>
+                        </b:listLinks>
+                    </b:panel>
+                </b:column>
+                <b:column span="9">
+                    <h:form id="form">
+                        <p:dataGrid var="car" value="" columns="1" style="margin: 0;"
+                                    rows="3" paginator="true" id="cars"
+                                    paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                    >
+                            <f:facet name="header">
+                                DAFTAR PRODUK
+                            </f:facet>
+                            <p:panel header="Chevrolet Camaro" style="text-align:center">
+                                <h:panelGrid columns="1" style="width:100%">
+                                    <p:graphicImage value="resources/images/camaro.jpg" width="150" height="100"/> 
+                                    <h:outputText style="font-weight: bold;font-size: 15px" value="Rp.5000000000,-" />
+                                    <a id="atrigger" class="btn btn-success btn-xs" href="#amodal" data-toggle="modal" style="color: white">Detail</a>
+                                    <b:button style="margin-top: 5px" value="Beli" look="primary" icon="ok" iconAlign="right" outcome="kantung belanja.xhtml" size="sm" />
+                                </h:panelGrid>
+                            </p:panel>
+                            <p:panel header="Chevrolet Camaro" style="text-align:center">
+                                <h:panelGrid columns="1" style="width:100%">
+                                    <p:graphicImage value="resources/images/camaro.jpg" width="150" height="100"/> 
+                                    <h:outputText style="font-weight: bold;font-size: 15px" value="Rp.5000000000,-" />
+                                    <a id="atrigger" class="btn btn-success btn-xs" href="#amodal" data-toggle="modal" style="color: white">Detail</a>
+                                    <b:button style="margin-top: 5px" value="Beli" look="primary" icon="ok" iconAlign="right" outcome="kantung belanja.xhtml" size="sm" />                                </h:panelGrid>
+                            </p:panel>
+                        </p:dataGrid>
+                    </h:form>
+                </b:column>
+            </b:row>
+        </h:body>
+    </f:view>
+
+</html>
+
