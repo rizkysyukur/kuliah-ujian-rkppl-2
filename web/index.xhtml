@@ -27,27 +27,25 @@
                 <b:jumbotron>
                     <h2>LOGIN</h2>
                     <div class="login">
-                        <h:form>
+                        <h:form id="loginForm">
+                            <p:growl id="msg" showDetail="true" life="3000" />
                             <h:panelGrid columns="1" cellpadding="5">
-                                <b:inputText placeholder="Username" fieldSize="lg" >
+                                <b:inputText value="#{login.uname}" placeholder="Username" fieldSize="lg" >
                                     <f:facet name="prepend">
                                         <b:icon name="user" />
                                     </f:facet>
                                 </b:inputText>
-                                <b:inputText placeholder="Password" fieldSize="lg">
+                                <b:inputText value="#{login.password}" placeholder="Password" fieldSize="lg">
                                     <f:facet name="prepend">
                                         <b:icon name="eye-open" />
                                     </f:facet>
                                 </b:inputText>
-                                <b:commandButton action="toko.xhtml" value="Masuk" look="success" icon="log-in" iconAlign="right"></b:commandButton>
+                                <b:commandButton action="#{loginController.login(login)}" ajax="true" value="Masuk" look="success" icon="log-in" iconAlign="right" update="loginForm"></b:commandButton>
                             </h:panelGrid>
                         </h:form>
                     </div>
                 </b:jumbotron>
             </b:container>
-            <h:link value="Masuk ke halaman toko" outcome="toko.xhtml" style="text-decoration: underline"/><br/>
-            <h:link value="Masuk ke halaman supplier" outcome="supplier.xhtml" style="text-decoration: underline" />
-          
         </h:body>
     </f:view>
 

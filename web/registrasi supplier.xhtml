@@ -19,7 +19,7 @@
         <h:body>
             <b:navBar brand="SUPPLIER RELATION MANAGEMENT" inverse="true" fixed="top">
                 <h:form styleClass="navbar-form navbar-right">
-                    <b:commandButton action="index.xhtml" value="Login" look="success" icon="log-in" iconAlign="right"/>
+                    <b:button outcome="#{loginController.logout()}" value="Login" look="success" icon="log-in" iconAlign="right"/>
                 </h:form>
             </b:navBar>
 
@@ -65,12 +65,12 @@
                                     </f:facet>
                                 </b:inputText>
                                 <a id="atrigger" class="btn btn-success" href="#amodal" data-toggle="modal" style="color: white">Selesai</a>
-                               </h:panelGrid>
+                            </h:panelGrid>
                         </h:form>
                     </div>
                 </b:jumbotron>
             </b:container>
-
+            <b:button value="Keluar" icon="chevron-left" iconAlign="right" dismiss="modal"/>
             <b:modal id="amodal" title="Pemberitahun">
                 <p>Anda berhasil membuat akun.</p>
                 <f:facet name="footer">
